@@ -1,0 +1,24 @@
+image: maven:3.8.4-openjdk-11
+
+stages:
+  - build
+  - test
+  - package
+
+build:
+  stage: build
+  script:
+    - mvn clean compile
+
+test:
+  stage: test
+  script:
+    - mvn test
+
+package:
+  stage: package
+  script:
+    - mvn package
+  artifacts:
+    paths:
+      - target/*.jar
