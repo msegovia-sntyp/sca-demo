@@ -35,12 +35,12 @@ jobs:
 
        # Step 4: Build, Test, and Package with Maven
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean package
         
       # Step 5: Verify TXT file existence
       - name: Verify TXT file existence
         run: |
-          if ls target/*.jar 1> /dev/null 2>&1; then
+          if ls target/*.txt 1> /dev/null 2>&1; then
             echo "TXT file exists"
           else
             echo "No TXT files found in target/"; exit 1
