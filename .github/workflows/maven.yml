@@ -12,33 +12,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Set up JDK
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
 
+      # Step 3: Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+       # Step 4: Build, Test, and Package with Maven
       - name: Build with Maven
-        run: mvn clean compile
-
-      - name: Run tests
-        run: mvn test
-
-      - name: Package application
-        run: mvn package
-
+        run: mvn clean package
+        
+      # Step 5: Verify JAR file existence
       - name: Verify JAR file existence
         run: |
-           ls -l target/*.jar || echo "No JAR files found in target/"
-
+          if ls target/*.jar 1> /dev/null 2>&1; then
+            echo "JAR file exists"
+          else
+            echo "No JAR files found in target/"; exit 1
+          fi
+          
+      # Step6: Upload JAR artifact          
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v3
         with:
           name: jar  #nombre del artefacto
           path: target/*.jar # ruta del artefacto
+          
+      # Step 7: Run Sonatype IQ Server Evaluate Action
       - name: Run Evaluate Action
         id: evaluate
         uses: sonatype/actions/evaluate@v1.3.0
