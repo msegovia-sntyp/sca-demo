@@ -33,4 +33,5 @@ pipeline {
             echo 'La construcción falló'
         }
     }
+nexusPolicyEvaluation advancedProperties: '', enableDebugLogging: false, failBuildOnNetworkError: false, failBuildOnScanningErrors: false, iqApplication: selectedApplication('JavaTestApp1'), iqInstanceId: 'local', iqOrganization: '2f808db994f547708bd0b75e6679ece7', iqStage: 'build', jobCredentialsId: '', reachability: [failOnError: false, java: [options: [], properties: [], tool: ''], javaAnalysis: [algorithm: 'RTA_PLUS', enable: false, entrypointStrategy: 'ACCESSIBLE_CONCRETE', force: false]], unstableBuildOnScanningWarnings: false
 }
