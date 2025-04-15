@@ -32,10 +32,20 @@ jobs:
 
       - name: Verify JAR file existence
         run: |
-          ls -l target/*.jar || echo "No JAR files found in target/"
+           ls -l target/*.jar || echo "No JAR files found in target/"
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v3
         with:
           name: jar  #nombre del artefacto
           path: target/*.jar # ruta del artefacto
+
+ - name: Run Evaluate Action
+        id: evaluate
+        uses: sonatype/actions/evaluate@v1.3.0
+        with:
+          iq-server-url: https://89f6b2432597.ngrok.app
+          username: ${{ secrets.IQ_USERNAME }}
+          password: ${{ secrets.IQ_PSWRD}}
+          application-id: JavaTestApp1
+          scan-targets: '**/*.jar'
