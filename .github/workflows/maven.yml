@@ -37,3 +37,15 @@ jobs:
       # Step 4: Build, Test, and Package with Maven
       - name: Build with Maven
         run: mvn clean package
+
+      # Step 5: Evaluate with Sonatype IQ
+        - name: iq policy eval
+        id: evaluate
+        uses: sonatype/actions@v1.3.0
+        with:
+          iq-server-url: https://89f6b2432597.ngrok.app/
+          username: ${{ secrets.IQ_USERNAME }}
+          password: ${{ secrets.IQ_PSWRD }}
+          application-id: JavaTestApp1
+          scan-targets: '**/*.jar'
+          enable-callflow: true
