@@ -47,7 +47,7 @@ jobs:
 
       # Step6: Upload TXT artifact          
       - name: Upload TXT artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@3e1c0437b4dcd9f0466c1fcb791f516d2d4a4a10
         with:
           name: txtfile  #nombre del artefacto
           path: target/*.txt # ruta del artefacto
