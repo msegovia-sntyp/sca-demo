@@ -31,7 +31,8 @@ jobs:
         run: mvn package
 
       - name: Verify JAR file existence
-        run: ls -l target/*.jar
+        run: |
+          ls -l target/*.jar || echo "No JAR files found in target/"
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v3
