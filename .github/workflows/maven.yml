@@ -36,21 +36,21 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
         
-      # Step 5: Verify JAR file existence
-      - name: Verify JAR file existence
+      # Step 5: Verify TXT file existence
+      - name: Verify TXT file existence
         run: |
           if ls target/*.jar 1> /dev/null 2>&1; then
-            echo "JAR file exists"
+            echo "TXT file exists"
           else
-            echo "No JAR files found in target/"; exit 1
+            echo "No TXT files found in target/"; exit 1
           fi
 
-      # Step6: Upload JAR artifact          
-      - name: Upload JAR artifact
-        uses: actions/upload-artifact@8a8f8c7a2a17c1b9e2b0f8c5b3efabf2e0e9153b
+      # Step6: Upload TXT artifact          
+      - name: Upload TXT artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: jar  #nombre del artefacto
-          path: target/*.jar # ruta del artefacto
+          name: txtfile  #nombre del artefacto
+          path: target/*.txt # ruta del artefacto
           
       # Step 7: Run Sonatype IQ Server Evaluate Action
       - name: Run Evaluate Action
