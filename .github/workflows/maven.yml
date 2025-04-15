@@ -44,10 +44,10 @@ jobs:
           else
             echo "No JAR files found in target/"; exit 1
           fi
-          
+
       # Step6: Upload JAR artifact          
       - name: Upload JAR artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: jar  #nombre del artefacto
           path: target/*.jar # ruta del artefacto
