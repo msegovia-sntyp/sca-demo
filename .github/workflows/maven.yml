@@ -37,26 +37,3 @@ jobs:
       # Step 4: Build, Test, and Package with Maven
       - name: Build with Maven
         run: mvn clean package
-
-      # Step 5: Verify TXT file existence
-      - name: Verify TXT file existence
-        run: |
-          if ls target/*.txt 1> /dev/null 2>&1; then
-            echo "TXT file exists"
-          else
-            echo "No TXT files found in target/"; exit 1
-          fi
-      # Debug: Verify environment and files
-      - name: Debug Environment and Files
-        run: |
-          echo "Current Environment Variables:"
-          env
-          echo "Checking files in the target directory:"
-          ls -la target/
-          
-      # Step 6: Upload TXT artifact
-      - name: Upload TXT artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: txtfile  # Artifact name
-          path: target/*.txt  # Path to the artifact.
