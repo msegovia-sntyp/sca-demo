@@ -31,7 +31,7 @@ jobs:
         run: mvn package
 
       - name: Upload JAR artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: jar
-          path: target/*.jar
+          name: jar  #nombre del artefacto
+          path: target/*.jar # ruta del artefacto
