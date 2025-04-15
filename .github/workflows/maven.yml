@@ -39,10 +39,10 @@ jobs:
         run: mvn clean package
 
       # Step 5: Evaluate with Sonatype IQ
-        - name: iq policy eval
+      - name: iq policy eval
           id: evaluate
           uses: sonatype/actions@v1.3.0
-            with:
+          with:
             iq-server-url: https://89f6b2432597.ngrok.app/
             username: ${{ secrets.IQ_USERNAME }}
             password: ${{ secrets.IQ_PSWRD }}
