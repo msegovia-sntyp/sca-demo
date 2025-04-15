@@ -39,8 +39,7 @@ jobs:
         with:
           name: jar  #nombre del artefacto
           path: target/*.jar # ruta del artefacto
-
- - name: Run Evaluate Action
+      - name: Run Evaluate Action
         id: evaluate
         uses: sonatype/actions/evaluate@v1.3.0
         with:
