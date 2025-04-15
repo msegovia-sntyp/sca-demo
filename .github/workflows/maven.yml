@@ -30,6 +30,9 @@ jobs:
       - name: Package application
         run: mvn package
 
+      - name: Verify JAR file existence
+        run: ls -l target/*.jar
+
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v3
         with:
