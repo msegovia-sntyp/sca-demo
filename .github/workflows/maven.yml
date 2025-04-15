@@ -46,7 +46,14 @@ jobs:
           else
             echo "No TXT files found in target/"; exit 1
           fi
-
+      # Debug: Verify environment and files
+      - name: Debug Environment and Files
+        run: |
+          echo "Current Environment Variables:"
+          env
+          echo "Checking files in the target directory:"
+          ls -la target/
+          
       # Step 6: Upload TXT artifact
       - name: Upload TXT artifact
         uses: actions/upload-artifact@v3
