@@ -47,7 +47,7 @@ jobs:
 
       # Step6: Upload JAR artifact          
       - name: Upload JAR artifact
-        uses: actions/upload-artifact@@8a8f8c7a2a17c1b9e2b0f8c5b3efabf2e0e9153b
+        uses: actions/upload-artifact@8a8f8c7a2a17c1b9e2b0f8c5b3efabf2e0e9153b
         with:
           name: jar  #nombre del artefacto
           path: target/*.jar # ruta del artefacto
