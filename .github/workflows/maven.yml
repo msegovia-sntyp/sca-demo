@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:  # Add GITHUB_TOKEN here to make it available to all steps in the job
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       # Step 1: Checkout the code
       - name: Checkout code
@@ -34,7 +35,7 @@ jobs:
 
        # Step 4: Build, Test, and Package with Maven
       - name: Build with Maven
-        run: mvn clean package
+        run: mvn clean install
         
       # Step 5: Verify TXT file existence
       - name: Verify TXT file existence
