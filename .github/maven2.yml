@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: txtfile  # Artifact name
-          path: target/*.txt  # Path to the artifact
+          path: target/*.txt  # Path to the artifact.
