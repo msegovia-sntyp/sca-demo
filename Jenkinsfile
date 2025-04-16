@@ -30,7 +30,7 @@ pipeline {
         stage('Evaluate') {
             steps {
                 nexusPolicyEvaluation advancedProperties: '', enableDebugLogging: false, failBuildOnNetworkError: false, failBuildOnScanningErrors: false, 
-                    iqApplication: selectedApplication('JavaTestApp1'), iqStage: 'build', 
+                    iqApplication: selectedApplication'JavaTestApp1', iqStage: 'build', 
                     reachability: [
                         javaAnalysis: [enable: true]
                     ]
