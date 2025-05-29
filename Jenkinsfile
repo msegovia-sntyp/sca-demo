@@ -34,7 +34,7 @@ pipeline {
                     enableDebugLogging: false, 
                     failBuildOnNetworkError: false, 
                     failBuildOnScanningErrors: false, 
-                    iqApplication: selectedApplication ('JavaTestApp1'), 
+                    iqApplication: selectedApplication ('maria-test-app'), 
                     iqStage: 'build', 
                     reachability: [
                         javaAnalysis: [enable: true]
