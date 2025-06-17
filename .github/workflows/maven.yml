@@ -44,7 +44,7 @@ jobs:
       # Step 5: Evaluate with Sonatype IQ
       - name: iq policy eval
         id: evaluate
-        uses: sonatype/evaluate@v1
+        uses: sonatype/actions/evaluate@v1
         with:
             iq-server-url: https://489348249c16.ngrok.app
             username: ${{ secrets.IQ_USERNAME }}
@@ -52,6 +52,6 @@ jobs:
             application-id: scademo
             scan-targets: '**/*'
             enable-callflow: true 
-            sarif-file: 'sariffile.sarif'
+            sarif_file: 'sariffile.sarif'
             upload-sarif-file: 'true'
   
