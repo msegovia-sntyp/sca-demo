@@ -44,7 +44,7 @@ jobs:
       # Step 5: Evaluate with Sonatype IQ
       - name: iq policy eval
         id: evaluate
-        uses: sonatype/actions@v1.3.0
+        uses: sonatype/evaluate@v1
         with:
             iq-server-url: https://489348249c16.ngrok.app
             username: ${{ secrets.IQ_USERNAME }}
